@@ -20,6 +20,10 @@
     <h1>Dynamic Quote Generator</h1>
     <div id="quoteDisplay" aria-live="polite"></div>
     <button id="newQuote">Show New Quote</button>
+        <div id="ioControls" style="margin-top:8px; display:flex; gap:8px; align-items:center;">
+            <button id="exportQuotes" onclick="exportToJsonFile()">Export Quotes</button>
+            <input id="importFile" type="file" accept=".json" onchange="importFromJsonFile(event)" />
+        </div>
 
     <!-- script placed at end to ensure DOM elements exist before execution -->
     <script src="script.js"></script>
