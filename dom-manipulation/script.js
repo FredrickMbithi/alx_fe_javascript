@@ -62,7 +62,6 @@
 
     const categorySelect = document.createElement("select");
     categorySelect.id = "categoryFilter"; // align with task snippet
-    categorySelect.setAttribute("onchange", "filterQuotes()");
 
     filterRow.appendChild(categoryLabel);
     filterRow.appendChild(categorySelect);
@@ -413,9 +412,8 @@
 
     // Wire up events
     newQuoteBtn?.addEventListener("click", showRandomQuote);
-    categorySelect.addEventListener("change", () => {
-        try { localStorage.setItem(LS_FILTER_KEY, categorySelect.value); } catch (_) { }
-    });
+    // Wire category changes to the filter handler so selection is persisted and view updated
+    categorySelect.addEventListener("change", filterQuotes);
 
     // Initial render
     populateCategories();
